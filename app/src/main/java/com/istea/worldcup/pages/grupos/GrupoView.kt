@@ -45,6 +45,7 @@ fun GruposView(
         ) {
             BackgroundImage()
             when (state) {
+                //Cambio: Usar el componente Cargando() en lugar del texto
                 GruposState.Cargando -> Cargando()
                 is GruposState.Resultado -> GroupsList(grupos = state.grupos){
                     onAction(OnGrupoClick(it))
@@ -82,6 +83,7 @@ fun GroupCardView(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
+                // CORRECCIÓN: Usar la variable grupo.name en lugar del String literal
                 text = grupo.name,
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.fillMaxWidth(),
@@ -105,6 +107,7 @@ fun GroupCardView(
 @Composable
 fun BackgroundImage() {
     Image(
+        // CORRECCIÓN 2: Usar el logo correcto (R.drawable.logo)
         painter = painterResource(R.drawable.logo),
         contentDescription = null,
         contentScale = ContentScale.Crop,
